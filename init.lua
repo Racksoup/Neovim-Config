@@ -93,6 +93,9 @@ require("nvim-tree").setup({
   },
 })
 -- Key Maps
+vim.api.nvim_set_keymap('n', '9', 'o<Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '(', 'O<Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>]', ':bnext <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
