@@ -74,6 +74,16 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["hyper.nvim"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\hyper.nvim",
@@ -84,10 +94,35 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\icecream",
     url = "https://github.com/liminalminds/icecream.nvim"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   }
 }
 

@@ -1,3 +1,7 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Load plugins
 vim.cmd [[call plug#begin('~/.local/share/nvim/plugged')]]
 vim.cmd [[
@@ -44,6 +48,12 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use({ 'liminalminds/icecream.nvim', as = 'icecream' })
 	use('paulo-granthon/hyper.nvim')
+	use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-jdtls'
+  use 'nvim-lua/plenary.nvim'
+	use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'},}
+	use 'lewis6991/gitsigns.nvim'
+	use 'romgrk/barbar.nvim'
 end)
 
 -- Enable syntax highlighting and set colorscheme
@@ -57,7 +67,31 @@ vim.cmd [[
     set number
     set relativenumber
 ]]
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 -- Key Maps
 vim.api.nvim_set_keymap('n', '<leader>]', ':bnext <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious <CR>', { noremap = true, silent = true })
@@ -68,6 +102,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { silent = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { silent = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { silent = true })
 vim.api.nvim_exec([[
   augroup CustomYankToClipboard
@@ -118,4 +153,14 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':lua require\'telescope.builtin\'.fi
 
 -- Define key mapping for opening Telescope's live_grep
 vim.api.nvim_set_keymap('n', '<C-t>', ':Telescope live_grep<CR>', { silent = true })
+
+
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+dofile(vim.fn.stdpath('config') .. '/barba.lua')
 
