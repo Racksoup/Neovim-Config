@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\icecream",
     url = "https://github.com/liminalminds/icecream.nvim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nvim-dap"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-dap",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
+  ["nvim-scrollview"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-scrollview",
+    url = "https://github.com/dstein64/nvim-scrollview"
   },
   ["nvim-tree.lua"] = {
     loaded = true,

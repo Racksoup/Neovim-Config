@@ -54,6 +54,8 @@ packer.startup(function(use)
 	use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'},}
 	use 'lewis6991/gitsigns.nvim'
 	use 'romgrk/barbar.nvim'
+	use 'karb94/neoscroll.nvim'
+	use 'dstein64/nvim-scrollview'
 end)
 
 -- Enable syntax highlighting and set colorscheme
@@ -113,6 +115,12 @@ vim.api.nvim_exec([[
     autocmd FileType * vnoremap <silent> <leader>y "+y
   augroup END
 ]], false)
+vim.api.nvim_exec([[
+  augroup CustomPasteFromClipboard
+    autocmd!
+    autocmd FileType * nnoremap <silent> <leader>p "+p
+  augroup END
+]], false)
 
 -- Set tabstop and shiftwidth
 vim.cmd [[
@@ -165,5 +173,15 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
+require('scrollview').setup({
+  excluded_filetypes = {'nerdtree'},
+  current_only = true,
+	sticky = true,
+  base = 'right',
+  signs_on_startup = {'all'},
+  diagnostics_severities = {vim.diagnostic.severity.ERROR}
+})
+
 dofile(vim.fn.stdpath('config') .. '/barba.lua')
+dofile(vim.fn.stdpath('config') .. '/neoscroll.lua')
 
