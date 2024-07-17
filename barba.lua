@@ -10,7 +10,7 @@ require'barbar'.setup {
 
   -- Automatically hide the tabline when there are this many buffers left.
   -- Set to any value >=0 to enable.
-  auto_hide = false,
+  -- auto_hide = false,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
@@ -21,18 +21,18 @@ require'barbar'.setup {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = {'javascript'},
-  exclude_name = {'package.json'},
+  -- exclude_ft = {'javascript'},
+  -- exclude_name = {'package.json'},
 
   -- A buffer to this direction will be focused (if it exists) when closing the current buffer.
   -- Valid options are 'left' (the default), 'previous', and 'right'
-  focus_on_close = 'left',
+  focus_on_close = 'right',
 
   -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-  hide = {extensions = true, inactive = true},
+  hide = {extensions = false, inactive = false},
 
   -- Disable highlighting alternate buffers
-  highlight_alternate = false,
+  highlight_alternate = true,
 
   -- Disable highlighting file icons in inactive buffers
   highlight_inactive_file_icons = false,
@@ -89,8 +89,7 @@ require'barbar'.setup {
 
   -- If true, new buffers will be inserted at the start/end of the list.
   -- Default is to insert after current buffer.
-  insert_at_end = false,
-  insert_at_start = false,
+  insert_at_end = true,
 
   -- Sets the maximum padding width with which to surround each tab
   maximum_padding = 1,
@@ -108,22 +107,7 @@ require'barbar'.setup {
   -- assigned based on their name. Otherwise or in case all letters are
   -- already assigned, the behavior is to assign letters in order of
   -- usability (see order below)
-  semantic_letters = true,
-
-  -- Set the filetypes which barbar will offset itself for
-  sidebar_filetypes = {
-    -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
-    NvimTree = true,
-    -- Or, specify the text used for the offset:
-    undotree = {
-      text = 'undotree',
-      align = 'center', -- *optionally* specify an alignment (either 'left', 'center', or 'right')
-    },
-    -- Or, specify the event which the sidebar executes when leaving:
-    ['neo-tree'] = {event = 'BufWipeout'},
-    -- Or, specify all three
-    Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
-  },
+  semantic_letters = false,
 
   -- New buffer letters are assigned in this order. This order is
   -- optimal for the qwerty keyboard layout but might need adjustment

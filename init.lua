@@ -96,6 +96,7 @@ require("nvim-tree").setup({
 vim.api.nvim_set_keymap('n', '9', 'o<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '(', 'O<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle <CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeFocus <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>]', ':bnext <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
@@ -105,7 +106,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { silent = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { silent = true })
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { silent = true })
 vim.api.nvim_exec([[
   augroup CustomYankToClipboard
