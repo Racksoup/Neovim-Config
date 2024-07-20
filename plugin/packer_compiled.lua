@@ -79,6 +79,26 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\gitsigns.nvim",
@@ -93,6 +113,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\icecream",
     url = "https://github.com/liminalminds/icecream.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -128,6 +158,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["smart-splits.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\smart-splits.nvim",
+    url = "https://github.com/mrjones2014/smart-splits.nvim"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 

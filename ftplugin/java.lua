@@ -2,6 +2,9 @@ local root_markers = {'gradlew', 'mvnw', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local workspace_folder = "C:/Users/propa/AppData/Local/Eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
 local config = {
   cmd = {
     -- 💀
@@ -28,6 +31,7 @@ local config = {
     java = {
     }
   },
+	capabilities = capabilities,
 }
 
 config['init_options'] = {

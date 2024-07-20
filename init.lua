@@ -54,6 +54,14 @@ packer.startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 	use 'romgrk/barbar.nvim'
 	use 'dstein64/nvim-scrollview'
+	use('mrjones2014/smart-splits.nvim')
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+	use 'onsails/lspkind.nvim'
+	use 'rafamadriz/friendly-snippets'
 end)
 
 -- Other Configs
@@ -61,3 +69,4 @@ dofile(vim.fn.stdpath('config') .. '/misc_config.lua')
 dofile(vim.fn.stdpath('config') .. '/keymap.lua')
 dofile(vim.fn.stdpath('config') .. '/barbar.lua')
 dofile(vim.fn.stdpath('config') .. '/colors.lua')
+dofile(vim.fn.stdpath('config') .. '/cmp.lua')
