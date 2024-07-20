@@ -71,6 +71,11 @@ dap.configurations.java = {
 	}
 }
 
+-- styles
+vim.fn.sign_define('DapBreakpoint', { text = '🛑', texthl = 'Error', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointCondition', { text = '🟢', texthl = 'Warning', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '❌', texthl = 'Error', linehl = '', numhl = '' })
+vim.fn.sign_define('DapLogPoint', { text = '📝', texthl = 'Info', linehl = '', numhl = '' })
 
 
 -- Keymaps
