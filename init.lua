@@ -48,13 +48,11 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use({ 'liminalminds/icecream.nvim', as = 'icecream' })
 	use('paulo-granthon/hyper.nvim')
-	use 'mfussenegger/nvim-dap'
-  use 'mfussenegger/nvim-jdtls'
+  use {'mfussenegger/nvim-jdtls', requires = {'mfussenegger/nvim-dap'}}
   use 'nvim-lua/plenary.nvim'
 	use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'},}
 	use 'lewis6991/gitsigns.nvim'
 	use 'romgrk/barbar.nvim'
-	use 'karb94/neoscroll.nvim'
 	use 'dstein64/nvim-scrollview'
 end)
 
@@ -62,5 +60,4 @@ end)
 dofile(vim.fn.stdpath('config') .. '/misc_config.lua')
 dofile(vim.fn.stdpath('config') .. '/keymap.lua')
 dofile(vim.fn.stdpath('config') .. '/barbar.lua')
-dofile(vim.fn.stdpath('config') .. '/neoscroll.lua')
 dofile(vim.fn.stdpath('config') .. '/colors.lua')

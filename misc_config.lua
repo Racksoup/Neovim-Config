@@ -1,8 +1,10 @@
 -- Set number and relative number
 vim.cmd [[
-    set number
-		set tabstop=2
-		set shiftwidth=2
+	set breakindent
+	set linebreak	
+  set number
+	set tabstop=2
+	set shiftwidth=2
 ]]
 
 -- Nvim-Tree

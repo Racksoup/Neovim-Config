@@ -1,8 +1,8 @@
 local op = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
-map('n', '0', 'o<Esc>', op) -- normal mode - insert line below
-map('n', ')', 'O<Esc>', op) -- normal mode - insert line above
+map('n', '9', 'o<Esc>', op) -- normal mode - insert line below
+map('n', '(', 'O<Esc>', op) -- normal mode - insert line above
 map('n', '<leader>e', ':NvimTreeToggle <CR>', op) -- open / close file explorer
 map('n', '<leader>r', ':NvimTreeFocus <CR>', op) -- open / focus file explorer
 map('n', '<leader>]', ':bnext <CR>', op) -- cycle buffers next
@@ -71,4 +71,11 @@ map('n', '<leader>bw', '<Cmd>BufferOrderByWindowNumber<CR>', op)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+
+local function nnoremap(rhs, lhs, desc)
+  local bufopts = {desc = desc}
+  vim.keymap.set("n", rhs, lhs, bufopts)
+end
+
 

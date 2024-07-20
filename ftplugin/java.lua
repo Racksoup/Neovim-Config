@@ -1,133 +1,18 @@
--- 
--- local config = {
---     cmd = {'C:/users/propa/AppData/Local/EclipseJDT/bin/jdtls.bat'},
---     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
--- }
--- require('jdtls').start_or_attach(config)
-
-
-local home = "C:/Users/propa"
-local jdtls = require('jdtls')
-
--- File types that signify a Java project's root directory.
 local root_markers = {'gradlew', 'mvnw', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
-
--- Workspace directory for project-specific data
-local workspace_folder = home .. "/AppData/Local/Eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
-
--- Helper function for creating keymaps
-local function nnoremap(rhs, lhs, bufopts, desc)
-  bufopts.desc = desc
-  vim.keymap.set("n", rhs, lhs, bufopts)
-end
-
--- The on_attach function to set key maps after the language server attaches
-local on_attach = function(client, bufnr)
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  nnoremap('gD', vim.lsp.buf.declaration, bufopts, "Go to declaration")
-  nnoremap('gd', vim.lsp.buf.definition, bufopts, "Go to definition")
-  nnoremap('gi', vim.lsp.buf.implementation, bufopts, "Go to implementation")
-  nnoremap('K', vim.lsp.buf.hover, bufopts, "Hover text")
-  nnoremap('<C-k>', vim.lsp.buf.signature_help, bufopts, "Show signature")
-  nnoremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
-  nnoremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
-  nnoremap('<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts, "List workspace folders")
-  nnoremap('<space>D', vim.lsp.buf.type_definition, bufopts, "Go to type definition")
-  nnoremap('<space>rn', vim.lsp.buf.rename, bufopts, "Rename")
-  nnoremap('<space>ca', vim.lsp.buf.code_action, bufopts, "Code actions")
-  vim.keymap.set('v', "<space>ca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
-    { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
-  nnoremap('<space>f', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
-
-  -- Java extensions provided by jdtls
-  nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
-  nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
-  vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-    { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
-end
+local workspace_folder = "C:/Users/propa/AppData/Local/Eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 local config = {
-  flags = {
-    debounce_text_changes = 80,
-  },
-  on_attach = on_attach,
-  root_dir = root_dir,
-  settings = {
-    java = {
-      format = {
-        settings = {
-          url = home .. "/AppData/Local/Eclipse/eclipse-java-google-style.xml",
-          profile = "GoogleStyle",
-        },
-      },
-      signatureHelp = { enabled = true },
-      contentProvider = { preferred = 'fernflower' },
-      completion = {
-        favoriteStaticMembers = {
-          "org.hamcrest.MatcherAssert.assertThat",
-          "org.hamcrest.Matchers.*",
-          "org.hamcrest.CoreMatchers.*",
-          "org.junit.jupiter.api.Assertions.*",
-          "java.util.Objects.requireNonNull",
-          "java.util.Objects.requireNonNullElse",
-          "org.mockito.Mockito.*"
-        },
-        filteredTypes = {
-          "com.sun.*",
-          "io.micrometer.shaded.*",
-          "java.awt.*",
-          "jdk.*", "sun.*",
-        },
-      },
-      sources = {
-        organizeImports = {
-          starThreshold = 9999;
-          staticStarThreshold = 9999;
-        },
-      },
-      codeGeneration = {
-        toString = {
-          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
-        },
-        hashCodeEquals = {
-          useJava7Objects = true,
-        },
-        useBlocks = true,
-      },
-      configuration = {
-        runtimes = {
-          {
-            name = "JavaSE-21",
-            path = "C:/Program Files/Amazon Corretto/jdk21.0.3_9",
-          },
-          {
-            name = "JavaSE-17",
-            path = "C:/Program Files/Amazon Corretto/jdk17.0.12_7",
-          },
-          {
-            name = "JavaSE-11",
-            path = "C:/Program Files/Amazon Corretto/jdk11.0.24_8",
-          },
-          {
-            name = "JavaSE-1.8",
-            path = "C:/Program Files/Amazon Corretto/jdk1.8.0_422"
-          },
-        }
-      }
-    }
-  },
   cmd = {
-    "C:/Program Files/Amazon Corretto/jdk17.0.12_7/bin/java",
+    -- 💀
+    "C:/Program Files/Amazon Corretto/jdk21.0.3_9/bin/java",
+	--	'-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1044'
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-Xmx4g',
+    '-Xmx1g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -135,7 +20,87 @@ local config = {
     '-configuration', 'C:/Users/propa/AppData/Local/EclipseJDT/config_win',
     '-data', workspace_folder,
   },
+
+  -- Here you can configure eclipse.jdt.ls specific settings
+  -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+  -- for a list of options
+  settings = {
+    java = {
+    }
+  },
 }
 
--- Start or attach to the JDTLS language server
-jdtls.start_or_attach(config)
+config['init_options'] = {
+  bundles = {
+    vim.fn.glob("C:/Users/propa/AppData/Local/java-debug/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
+  };
+}
+
+-- This starts a new client & server,
+-- or attaches to an existing client & server depending on the `root_dir`.
+require('jdtls').start_or_attach(config)
+require('jdtls.dap').setup_dap_main_class_configs()
+
+local dap = require('dap')
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+	{
+    javaExec = "C:/Program Files/Amazon Corretto/jdk21.0.3_9/bin/java",
+    modulePaths = {},
+    name = "Launch YourClassName",
+    request = "launch",
+    type = "java"
+  },
+}
+
+
+
+-- Keymaps
+local bufopts = {desc = desc}
+-- Go to definition
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+-- Find references
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+-- Go to implementation
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+-- Hover to show documentation
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+-- Code actions
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+-- Rename symbol
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+-- Extract variable
+vim.keymap.set('n', '<leader>ev', function() jdtls.extract_variable() end, bufopts)
+-- Extract constant
+vim.keymap.set('n', '<leader>ec', function() jdtls.extract_constant() end, bufopts)
+-- Extract method
+vim.keymap.set('n', '<leader>em', function() jdtls.extract_method() end, bufopts)
+-- Start debugging
+vim.keymap.set('n', '<F5>', '<Cmd>lua require"dap".continue()<CR>', bufopts)
+-- Step over
+vim.keymap.set('n', '<F10>', '<Cmd>lua require"dap".step_over()<CR>', bufopts)
+-- Step into
+vim.keymap.set('n', '<F11>', '<Cmd>lua require"dap".step_into()<CR>', bufopts)
+-- Step out
+vim.keymap.set('n', '<F12>', '<Cmd>lua require"dap".step_out()<CR>', bufopts)
+-- Toggle breakpoint
+vim.keymap.set('n', '<F9>', '<Cmd>lua require"dap".toggle_breakpoint()<CR>', bufopts)
+-- Set conditional breakpoint
+vim.keymap.set('n', '<leader>db', '<Cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', bufopts)
+-- Log point
+vim.keymap.set('n', '<leader>dl', '<Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', bufopts)
+-- Open REPL
+vim.keymap.set('n', '<leader>dr', '<Cmd>lua require"dap".repl.open()<CR>', bufopts)
+-- Run to cursor
+vim.keymap.set('n', '<leader>dc', '<Cmd>lua require"dap".run_to_cursor()<CR>', bufopts)
+-- Evaluate
+vim.keymap.set('n', '<leader>de', '<Cmd>lua require"dapui".eval()<CR>', bufopts)
+vim.keymap.set('v', '<leader>de', '<Cmd>lua require"dapui".eval()<CR>', bufopts)
+-- DAP UI (optional)
+vim.keymap.set('n', '<leader>du', '<Cmd>lua require"dapui".toggle()<CR>', bufopts)
