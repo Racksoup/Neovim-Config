@@ -6,7 +6,7 @@ local config = {
   cmd = {
     -- 💀
     "C:/Program Files/Amazon Corretto/jdk21.0.3_9/bin/java",
-	--	'-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1044'
+	  '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -57,6 +57,14 @@ dap.configurations.java = {
     request = "launch",
     type = "java"
   },
+	{
+		-- doesn't work :) only know how to attach to mindcraft
+		type = 'java';
+		request = 'launch';
+		name = 'Launch MindCraft';
+		mainClass = 'net.minecraft.client.main.Main';
+		projectName = 'MDK-main';
+	}
 }
 
 
