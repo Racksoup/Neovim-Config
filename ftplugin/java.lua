@@ -43,6 +43,7 @@ config['init_options'] = {
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
+require('jdtls.dap').setup_dap({'hotcodereplace', 'auto'})
 require('jdtls.dap').setup_dap_main_class_configs()
 
 local dap = require('dap')
@@ -93,11 +94,13 @@ vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 -- Rename symbol
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
 -- Extract variable
-vim.keymap.set('n', '<leader>ev', function() jdtls.extract_variable() end, bufopts)
+vim.keymap.set('n', '<leader>ev', '<Cmd>lua require"jdtls".extract_variable()<CR>', bufopts)
 -- Extract constant
-vim.keymap.set('n', '<leader>ec', function() jdtls.extract_constant() end, bufopts)
+vim.keymap.set('n', '<leader>ec', '<Cmd>lua require"jdtls".extract_constant()<CR>', bufopts)
 -- Extract method
-vim.keymap.set('n', '<leader>em', function() jdtls.extract_method() end, bufopts)
+vim.keymap.set('n', '<leader>em', '<Cmd>lua require"jdtls".extract_method()<CR>', bufopts)
+-- Update Code
+vim.keymap.set('n', '<F6>', '<Cmd>lua require"jdtls".update_hotcode()<CR>', bufopts)
 -- Start debugging
 vim.keymap.set('n', '<F5>', '<Cmd>lua require"dap".continue()<CR>', bufopts)
 -- Step over
