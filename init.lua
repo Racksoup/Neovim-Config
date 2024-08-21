@@ -47,7 +47,7 @@ packer.init({
 packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use({ 'liminalminds/icecream.nvim', as = 'icecream' })
-	use('paulo-granthon/hyper.nvim')
+	use "rebelot/kanagawa.nvim"
   use {'mfussenegger/nvim-jdtls', requires = {'mfussenegger/nvim-dap'}}
   use 'nvim-lua/plenary.nvim'
 	use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'},}
@@ -62,6 +62,11 @@ packer.startup(function(use)
   use 'hrsh7th/vim-vsnip'
 	use 'onsails/lspkind.nvim'
 	use 'rafamadriz/friendly-snippets'
+	use ({"ziontee113/color-picker.nvim",
+		config = function()
+			require("color-picker")
+		end,
+	})
 end)
 
 -- Other Configs

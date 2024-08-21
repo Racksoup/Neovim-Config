@@ -94,6 +94,12 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["color-picker.nvim"] = {
+    config = { "\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17color-picker\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\color-picker.nvim",
+    url = "https://github.com/ziontee113/color-picker.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\friendly-snippets",
@@ -104,15 +110,15 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["hyper.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\hyper.nvim",
-    url = "https://github.com/paulo-granthon/hyper.nvim"
-  },
   icecream = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\icecream",
     url = "https://github.com/liminalminds/icecream.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -172,6 +178,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: color-picker.nvim
+time([[Config for color-picker.nvim]], true)
+try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17color-picker\frequire\0", "config", "color-picker.nvim")
+time([[Config for color-picker.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
