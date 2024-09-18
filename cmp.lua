@@ -16,7 +16,12 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    -- Remove the Enter mapping to prevent confirmation
+    ['<CR>'] = cmp.mapping(function(fallback)
+      fallback()  -- Perform the default <CR> action without confirming completion
+    end),
+    -- Add Shift-Enter mapping for confirming completion
+    ['<S-CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
@@ -46,3 +51,5 @@ cmp.setup {
  		})
  	},
 }
+
+

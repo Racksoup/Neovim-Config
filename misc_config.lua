@@ -2,9 +2,10 @@
 vim.cmd [[
 	set breakindent
 	set linebreak	
-  set number
-	set tabstop=4
-	set shiftwidth=4
+	set number
+	set tabstop=2
+	set shiftwidth=2
+	set expandtab
 ]]
 
 -- Nvim-Tree
