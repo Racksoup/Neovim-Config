@@ -25,16 +25,23 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    -- tab does normal stuff 
+    ['<Tab>'] = function(fallback)
+      fallback()
+    end,
+    -- shift-q selects up through auto-complete 
+    ['<S-q>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_prev_item()
       else
         fallback()
       end
     end, { 'i', 's' }),
+    -- shift-tab selects down through auto-complete
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_next_item()
+        
       else
         fallback()
       end

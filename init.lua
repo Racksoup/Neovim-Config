@@ -1,7 +1,8 @@
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
+--
+--
 -- Load plugins
 vim.cmd [[call plug#begin('~/.local/share/nvim/plugged')]]
 vim.cmd [[
@@ -75,3 +76,4 @@ dofile(vim.fn.stdpath('config') .. '/keymap.lua')
 dofile(vim.fn.stdpath('config') .. '/barbar.lua')
 dofile(vim.fn.stdpath('config') .. '/colors.lua')
 dofile(vim.fn.stdpath('config') .. '/cmp.lua')
+

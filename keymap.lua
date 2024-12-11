@@ -1,6 +1,10 @@
 local op = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
+-- Map '4' to work like the leader key
+vim.api.nvim_set_keymap('n', '4', '<Leader>', { noremap = true })
+vim.api.nvim_set_keymap('v', '4', '<Leader>', { noremap = true })
+vim.api.nvim_set_keymap('x', '4', '<Leader>', { noremap = true })
 map('n', '9', 'o<Esc>', op) -- normal mode - insert line below
 map('n', '(', 'O<Esc>', op) -- normal mode - insert line above
 map('n', '<leader>e', ':NvimTreeToggle <CR>', op) -- open / close file explorer
@@ -18,18 +22,15 @@ map('n', '<leader>ff', ':lua require\'telescope.builtin\'.find_files(require(\'t
 map('n', '<leader>fg', ':lua require(\'telescope.builtin\').live_grep()<CR>', op) -- grep
 map('n', '<leader>fb', ':lua require(\'telescope.builtin\').buffers()<CR>', op) -- buffers
 map('n', '<leader>fh', ':lua require(\'telescope.builtin\').help_tags()<CR>', op) -- tags
-vim.api.nvim_exec([[ 
-  augroup CustomYankToClipboard
-    autocmd!
-    autocmd FileType * vnoremap <silent> <leader>y "+y
-  augroup END
-]], false) -- Copy
-vim.api.nvim_exec([[
-  augroup CustomPasteFromClipboard
-    autocmd!
-    autocmd FileType * nnoremap <silent> <leader>p "+p
-  augroup END
-]], false) -- Paste
+-- Copy to clipboard (Ctrl+C in visual mode)
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+-- Cut to clipboard (Ctrl+X in visual mode)
+vim.api.nvim_set_keymap('v', '<C-x>', '"+d', { noremap = true, silent = true })
+-- Paste from clipboard (Ctrl+V in normal and visual mode)
+vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-v>', '"+p', { noremap = true, silent = true })
+-- Paste in insert mode (Ctrl+V in insert mode)
+vim.api.nvim_set_keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 -- BarBar
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', op)
