@@ -100,9 +100,9 @@ vim.keymap.set('n', '<leader>ec', '<Cmd>lua require"jdtls".extract_constant()<CR
 -- Extract method
 vim.keymap.set('n', '<leader>em', '<Cmd>lua require"jdtls".extract_method()<CR>', bufopts)
 -- Update Code
-vim.keymap.set('n', '<F6>', '<Cmd>lua require"jdtls".update_hotcode()<CR>', bufopts)
+vim.keymap.set('n', '<F2>', '<Cmd>lua require"jdtls".update_hotcode()<CR>', bufopts)
 -- Start debugging
-vim.keymap.set('n', '<F5>', '<Cmd>lua require"dap".continue()<CR>', bufopts)
+vim.keymap.set('n', '<F1>', '<Cmd>lua require"dap".continue()<CR>', bufopts)
 -- Step over
 vim.keymap.set('n', '<F10>', '<Cmd>lua require"dap".step_over()<CR>', bufopts)
 -- Step into
