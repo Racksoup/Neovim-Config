@@ -10,7 +10,6 @@ vim.cmd [[
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 		Plug 'Mofiqul/vscode.nvim'
 		Plug 'zootedb0t/citruszest.nvim'
 ]]
@@ -55,6 +54,7 @@ packer.startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 	use 'romgrk/barbar.nvim'
 	use 'dstein64/nvim-scrollview'
+  use 'p00f/nvim-ts-rainbow'
 	use('mrjones2014/smart-splits.nvim')
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
@@ -68,6 +68,17 @@ packer.startup(function(use)
 			require("color-picker")
 		end,
 	})
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+  use {
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
 end)
 
 -- Other Configs

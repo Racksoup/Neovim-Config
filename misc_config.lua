@@ -31,6 +31,11 @@ require'nvim-treesitter.configs'.setup {
     enable = true,              
     additional_vim_regex_highlighting = false,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like HTML tags
+    max_file_lines = 1000, -- Disable for big files
+  },
 }
 
 -- Telescope
