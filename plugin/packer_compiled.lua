@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["citruszest.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\citruszest.nvim",
+    url = "https://github.com/zootedb0t/citruszest.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\cmp-buffer",
@@ -95,7 +100,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["color-picker.nvim"] = {
-    config = { "\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17color-picker\frequire\0" },
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17color-picker\frequire\0" },
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\color-picker.nvim",
     url = "https://github.com/ziontee113/color-picker.nvim"
@@ -124,6 +129,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\opt\\markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -155,11 +167,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\nvim-web-devicons",
@@ -180,6 +187,21 @@ _G.packer_plugins = {
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\smart-splits.nvim",
     url = "https://github.com/mrjones2014/smart-splits.nvim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
+  },
   ["vim-matchup"] = {
     after_files = { "C:\\Users\\propa\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vim-matchup\\after\\plugin\\matchit.vim" },
     loaded = true,
@@ -191,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\propa\\AppData\\Local\\nvim-data/site/pack\\packer\\start\\vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
@@ -204,8 +231,15 @@ vim.cmd [[packadd vim-matchup]]
 time([[packadd for vim-matchup]], false)
 -- Config for: color-picker.nvim
 time([[Config for color-picker.nvim]], true)
-try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17color-picker\frequire\0", "config", "color-picker.nvim")
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17color-picker\frequire\0", "config", "color-picker.nvim")
 time([[Config for color-picker.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -8,6 +8,15 @@ vim.cmd [[
 	set expandtab
 ]]
 
+-- fix indent new line issue
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.cindent = true
+vim.cmd("filetype plugin indent on")
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 -- Nvim-Tree
 require("nvim-tree").setup({
   sort = {
@@ -37,6 +46,12 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = 1000, -- Disable for big files
   },
 }
+
+-- treesitter fold
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+-- Optional: start with everything unfolded
+vim.o.foldlevel = 99
 
 -- Telescope
 local actions = require('telescope.actions')
