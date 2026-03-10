@@ -92,7 +92,16 @@ vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
 vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
 vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
 vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
-
 -- color picker
 map('n', '<leader>cp', '<cmd>PickColor<cr>', op) 
 map('i', '<leader>cp', '<cmd>PickColorInsert<cr>', op) 
+-- java_make
+local jmake = require("config.java_make")
+vim.keymap.set("n", "<leader>jr", function()
+  jmake.run()
+end, { desc = "Compile and run Java project" })
+vim.keymap.set("n", "<leader>jc", jmake.compile)
+vim.keymap.set("n", "<leader>jx", jmake.clean)
+vim.keymap.set("n", "<leader>mf", function()
+  require("config.makefile_init").make_makefile()
+end, { desc = "Make Makefile template" })

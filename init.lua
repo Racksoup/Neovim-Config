@@ -79,6 +79,13 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
     ft = { "markdown" }, -- load only for markdown files
   })
+  use {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+        require("nvim-autopairs").setup {}
+    end
+  }
 end)
 
 -- Python config

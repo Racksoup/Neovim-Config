@@ -151,3 +151,7 @@ vim.keymap.set('n', '<leader>dc', '<Cmd>lua require"dap".run_to_cursor()<CR>', b
 vim.keymap.set('n', '<leader>de', '<Cmd>lua require"dapui".eval()<CR>', bufopts)
 vim.keymap.set('v', '<leader>de', '<Cmd>lua require"dapui".eval()<CR>', bufopts)
 vim.keymap.set('n', '<leader>du', '<Cmd>lua require"dapui".toggle()<CR>', bufopts)
+-- scripts
+vim.keymap.set("n", "<leader>jc", function()
+  require("config.java_class_init").make_java_class_init()
+end, { desc = "Make Java main class" })
