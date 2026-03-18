@@ -1,6 +1,6 @@
 return {
-  user = "propa",
-  jdtls_java = "C:/Program Files/Amazon Corretto/jdk21.0.3_9/bin/java",
+  user = "wind",
+  jdtls_java = "C:/Program Files/Java/jdk-21/bin/java",
   launch_java = "C:/Program Files/Amazon Corretto/jdk21.0.3_9/bin/java",
-  jdwp_arg = '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006',
+  jdwp_arg = nil,
 }
