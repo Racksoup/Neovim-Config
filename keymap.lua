@@ -105,3 +105,7 @@ vim.keymap.set("n", "<leader>jx", jmake.clean)
 vim.keymap.set("n", "<leader>mf", function()
   require("config.makefile_init").make_makefile()
 end, { desc = "Make Makefile template" })
+-- react
+vim.keymap.set("n", "<leader>rc", function()
+  require("config.react_component").make_react_component()
+end, { desc = "Create React component from filename" })
