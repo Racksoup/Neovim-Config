@@ -23,13 +23,18 @@ require("nvim-tree").setup({
     sorter = "case_sensitive",
   },
   view = {
-    width = 30,
+    width = 35,
   },
   renderer = {
     group_empty = true,
   },
   filters = {
     dotfiles = true,
+  },
+  actions = {
+    open_file = {
+      resize_window = false,
+    },
   },
 })
 
