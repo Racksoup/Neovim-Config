@@ -103,7 +103,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Load other config files
 dofile(vim.fn.stdpath('config') .. '/misc_config.lua')
 dofile(vim.fn.stdpath('config') .. '/keymap.lua')
-dofile(vim.fn.stdpath('config') .. '/barbar.lua')
 dofile(vim.fn.stdpath('config') .. '/colors.lua')
 dofile(vim.fn.stdpath('config') .. '/cmp.lua')
 

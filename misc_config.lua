@@ -82,3 +82,50 @@ require('scrollview').setup({
   signs_on_startup = {'all'},
   diagnostics_severities = {vim.diagnostic.severity.ERROR}
 })
+
+vim.g.barbar_auto_setup = false
+require("barbar").setup({
+  auto_hide = false,
+  hide = {
+    inactive = true,
+  },
+  maximum_padding = 0,
+  minimum_padding = 0,
+  maximum_length = 30,
+  minimum_length = 0,
+  icons = {
+    buffer_index = true,
+    buffer_number = false,
+    button = '',
+    gitsigns = {
+      added = {enabled = true, icon = '+'},
+      changed = {enabled = true, icon = '~'},
+      deleted = {enabled = true, icon = '-'},
+    },
+    filetype = {
+      custom_colors = true,
+      enabled = false,
+    },
+    separator = {left = '▎', right = ''},
+    separator_at_end = true,
+    modified = {button = ' ●'},
+    pinned = {button = ' *', filename = true},
+
+    -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
+    preset = 'default',
+
+    -- Configure the icons on the bufferline based on the visibility of a buffer.
+    -- Supports all the base icon options, plus `modified` and `pinned`.
+    alternate = {filetype = {enabled = false}},
+    current = {buffer_index = true},
+    inactive = {button = '×', buffer_index = true},
+    visible = {modified = {buffer_number = false}},
+  },
+})
+vim.api.nvim_create_autocmd("BufModifiedSet", {
+  callback = function(args)
+    if vim.bo[args.buf].modified then
+      vim.cmd("BufferPin")
+    end
+  end,
+})
